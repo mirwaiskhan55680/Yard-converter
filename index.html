@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #6D41A1;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color:#6D41A1;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #119a33;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Area Converter</h1>
+
+        <form id="areaConverterForm">
+            <label for="yards">Enter Yards:</label>
+            <input type="number" id="yards" name="yards" required>
+            <input type="submit" value="Convert to Square Feet">
+        </form>
+
+        <form id="squareFeetConverterForm">
+            <label for="squareFeet">Enter Square Feet:</label>
+            <input type="number" id="squareFeet" name="squareFeet" required>
+            <input type="submit" value="Convert to Yards">
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('areaConverterForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var yards = parseFloat(document.getElementById('yards').value);
+            var squareFeet = yards * 9;
+
+            document.getElementById('result').innerText = yards + ' yards is equal to ' + squareFeet + ' square feet.';
+        });
+
+        document.getElementById('squareFeetConverterForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var squareFeet = parseFloat(document.getElementById('squareFeet').value);
+            var yards = squareFeet / 9;
+
+            document.getElementById('result').innerText = squareFeet + ' square feet is equal to ' + yards + ' yards.';
+        });
+    </script>
+</body>
+</html>
+ 
